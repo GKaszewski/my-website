@@ -6,23 +6,24 @@
       <span>Gabriel Kaszewski</span>
       <span class="example-spacer"></span>
       <div fxShow="true" fxHide.lt-md="true">
-        <button mat-button>Home</button>
-        <button mat-button>Projects</button>
-        <button mat-button>Contact</button>
+        <button mat-icon-button (click)="goToPage('home')"><mat-icon>home</mat-icon></button>
+        <button mat-icon-button (click)="goToPage('projects')"><mat-icon>assignment</mat-icon></button>
+        <button mat-icon-button (click)="goToPage('contact')"><mat-icon>perm_contact_calendar</mat-icon></button>
       </div>
     </mat-toolbar>
   
-    <mat-sidenav-container fxFlexFill class="example-container">
+    <mat-sidenav-container fxFlexFill>
       <mat-sidenav #sidenav fxLayout="column">
         <div fxLayout="column">
-            <button mat-button (click)="goToPage('home')">Home</button>
-            <button mat-button (click)="goToPage('projects')">Projects</button>
-            <button mat-button (click)="goToPage('contact')">Contact</button>  
+            <button mat-icon-button (click)="goToPage('home')"><mat-icon>home</mat-icon></button>
+            <button mat-icon-button (click)="goToPage('projects')"><mat-icon>assignment</mat-icon></button>
+            <button mat-icon-button (click)="goToPage('contact')"><mat-icon>perm_contact_calendar</mat-icon></button>
             <button (click)="sidenav.toggle()" mat-button><mat-icon>close</mat-icon></button>
         </div>
       </mat-sidenav>
       <mat-sidenav-content fxFlexFill>
-
+        <router-outlet></router-outlet>
       </mat-sidenav-content>
     </mat-sidenav-container>
+    <app-footer></app-footer>
   </div>
