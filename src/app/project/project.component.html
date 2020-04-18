@@ -1,0 +1,13 @@
+<mat-card class="project-card">
+    <mat-card-header>
+        <mat-card-title>{{title}}</mat-card-title>
+        <mat-card-subtitle>{{technology}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{imgUrl}}">
+    <mat-card-content>
+        <p>{{desc}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="openModal()">Read more</button>
+    </mat-card-actions>
+</mat-card>
