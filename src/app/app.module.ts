@@ -10,11 +10,17 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { HomePageComponent } from './home-page/home-page.component';
+import { ProjectsPageComponent } from './projects-page/projects-page.component';
+import { ContactPageComponent } from './contact-page/contact-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    HomePageComponent,
+    ProjectsPageComponent,
+    ContactPageComponent
   ],
   imports: [
     BrowserModule,
