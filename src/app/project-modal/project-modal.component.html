@@ -9,7 +9,9 @@
             <p>{{data.longDesc}}</p>
         </mat-card-content>
         <mat-card-actions>
-           
+           <button *ngIf="data.github" mat-raised-button color="primary" (click)="goToPage(data.githubUrl)">Github</button>
+           <button *ngIf="data.download" mat-raised-button color="primary" (click)="goToPage(data.downloadUrl)">Download<mat-icon>get_app</mat-icon></button>
+           <button *ngIf="data.visit" mat-raised-button color="primary" (click)="goToPage(data.visitUrl)">Visit</button>
         </mat-card-actions>
     </mat-card>
 </mat-dialog-content>

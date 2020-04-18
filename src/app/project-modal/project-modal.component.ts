@@ -9,4 +9,8 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class ProjectModalComponent{
 
   constructor(@Inject(MAT_DIALOG_DATA) public data : any) { }
+
+  goToPage(link : string) {
+    window.open(link);
+  }
 }
