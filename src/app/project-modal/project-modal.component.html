@@ -4,8 +4,8 @@
             <mat-card-title>{{data.title}}</mat-card-title>
             <mat-card-subtitle>{{data.tech}}</mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image src="{{data.imgUrl}}">
-        <mat-card-content>
+        <mat-card-content fxLayoutGap=10px>
+            <img class="banner" mat-card-image src="{{data.imgUrl}}">
             <p>{{data.longDesc}}</p>
         </mat-card-content>
         <mat-card-actions>
