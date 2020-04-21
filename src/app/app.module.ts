@@ -13,6 +13,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ProjectsPageComponent } from './projects-page/projects-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
+import { ProjectComponent } from './project/project.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ProjectModalComponent } from './project-modal/project-modal.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +27,10 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
     NavbarComponent,
     HomePageComponent,
     ProjectsPageComponent,
-    ContactPageComponent
+    ContactPageComponent,
+    ProjectComponent,
+    ProjectModalComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +40,11 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
     MatSidenavModule,
     FlexLayoutModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

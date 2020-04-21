@@ -4,10 +4,11 @@
         <mat-card-subtitle>{{technology}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-        <img mat-card-image src="{{imgUrl}}">
+        <img *ngIf="imgUrl!=null" mat-card-image src="{{imgUrl}}">
         <p>{{desc}}</p>
     </mat-card-content>
     <mat-card-actions class="actions">
-        <button mat-raised-button color="primary" (click)="openModal()">Read more</button>
+        <button *ngIf="longDescription!=null" mat-raised-button color="primary" (click)="openModal()">Read more</button>
+        <button *ngIf="longDescription==null&&github" mat-raised-button color="primary" (click)="goToPage(githubUrl)">Github</button>
     </mat-card-actions>
 </mat-card>

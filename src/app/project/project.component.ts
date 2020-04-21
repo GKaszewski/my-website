@@ -28,4 +28,8 @@ export class ProjectComponent {
       longDesc : this.longDescription, github:this.github, download:this.download, visit:this.visit,
       githubUrl:this.githubUrl, downloadUrl:this.downloadUrl, visitUrl:this.visitUrl}});
   }
+
+  goToPage(url : string) {
+    window.open(url);
+  }
 }
