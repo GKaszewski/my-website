@@ -1,1 +1,70 @@
-<p>projects-page works!</p>
+<div clas="center" fxLayout="column" fxLayoutAlign="space-evenly center" fxLayoutGap=40px>
+    <h1 display-1>My Projects</h1>
+    <div class="projects-section" fxLayout="row wrap" fxLayoutAlign="space-evenly" fxLayoutGap="20px grid">
+        <app-project github=true githubUrl="https://github.com/GKaszewski/SpeedKill" title="Speed Kill" technology="Unity, C#" desc="Fast-paced multiplayer FPS shooter!"
+        longDescription = "Main goal of this project was to learn how to make multiplayer games in Unity. 
+        This game has singleplayer mode and multiplayer as well. 
+        Important note: it has a lot of bugs. If you spot one, please make an issue."
+        ></app-project>
+        <app-project download=true downloadUrl="https://play.google.com/store/apps/details?id=com.gabrielkaszewski.talkingreggie" 
+        title="Talking Reggie" technology="Dart, Flutter" desc="App inspired by Victorious show." 
+        imgUrl="https://drive.google.com/uc?open=download&id=1vS32Kk25b4IDpTEB-PPYSlw_4hEkra9r"
+        longDescription = "I loved watching Victorious when I was a little kid. I have rewatched it on Netflix recenty
+        and I decided to write a similar app that was on Victorious. Reggie is a happy bear which loves copying and saying back
+        in his funny voice whatever you tell him. Talking Reggie is available on Google Play Store!"
+        ></app-project>
+        <app-project github=true visit=true githubUrl="https://github.com/GKaszewski/NetWorthCalculator" visitUrl="https://gkaszewski.github.io/NetWorthCalculator/"
+        title="Net Worth Calculator" technology="Angular, Typescript" desc="My first web application."
+        longDescription = "This is simple calculator, it asks you about your assets and liabilities and then calculates your net worth."
+        ></app-project>
+        <app-project github=true download=true githubUrl="https://github.com/GKaszewski/audio-recorder" 
+        downloadUrl="https://github.com/GKaszewski/audio-recorder/releases" 
+        title="Audio recorder" technology="QT, C++" desc="Simple audio recorder written in C++" 
+        longDescription="Why did I make this program? Well, I couldn't find an audio recorder that had a global hotkey for recording.
+        So I made one myself. I decided to use C++ and QT because I wanted it to be lightweight and cross-platform.
+        Even though it is working, and it works quite well, I want to add ffmpeg support in the future.
+        "></app-project>
+        <app-project title="Everyday quotes" technology="Dart, Flutter" desc="Simple app for reading various quotations"
+        github=true download=true githubUrl="https://github.com/GKaszewski/Everyday_quotes" downloadUrl="https://play.google.com/store/apps/details?id=com.GabrielKaszewski.everydayquotes"
+        longDescription="I made this app because I wanted to learn how to write mobile apps and how to use public API.
+        It was my first flutter app."></app-project>
+        <app-project title="Music streaming platform service" technology="Python, Django"
+        github=true visit=true githubUrl="https://github.com/GKaszewski/music-streaming-platform-service" 
+        visitUrl="https://streaming-platform-service.herokuapp.com/"
+        desc="Backend for my music streaming platform [WIP]"
+        longDescription="Back in January 2019, I had this amazing idea for an app. 
+        I wanted to make something similar to Spotify. So I did it. 
+        This is the backend for what I call 'my music streaming platform'. 
+        Currently this manages songs and playlists. 
+        I have to add user authentication and management and this project will be finished."></app-project>
+        <app-project title="Spanish learning game" technology="C#, Unity"
+        github=true download=true githubUrl="https://github.com/GKaszewski/Spanish-Learning-Game" 
+        downloadUrl="https://gamejolt.com/games/spanish-inquisition/425125"
+        desc="Educational game made in 24 hours in Unity."
+        longDescription="I made this game because I have Spanish as one of the subjects in school.
+        I wanted to improve my vocabulary by having fun and a game is a perfect solution for this problem.
+        I made this in 24 hours. It is not perfect gameplay-wise but I learned some Spanish from it. 
+        So it kind of works."></app-project>
+        <app-project title="GabrielTube" technology="Python, Django"
+        github=true githubUrl="https://github.com/GKaszewski/GabrielTube"
+        desc="My attempt at video sharing platform"
+        longDescription="My attempt at making website similar to YouTube. Features available: uploading videos, liking them and commenting on them.
+        "></app-project>
+        <app-project title="Ant game" technology="C++, SFML" github=true githubUrl="https://github.com/GKaszewski/ant-game-cpp"
+        desc="My implementation of Langton's ant in C++"></app-project>
+        <app-project title="Ant game" technology="Java" github=true githubUrl="https://github.com/GKaszewski/Ant-game"
+        desc="My implementation Langton's ant in Java."></app-project>
+        <app-project title="Dictionary generator" technology="C#"
+        desc="Tool for my game." github=true githubUrl="https://github.com/GKaszewski/Dictionary-generator"></app-project>
+        <app-project title="Bandwidth monitor" technology="Python, Kivy" desc="Simple program for monitoring network bandwidth"
+        github=true githubUrl="https://github.com/GKaszewski/Bandwidth-monitor"></app-project>
+        <app-project title="Music streaming app" technology="Dart, Flutter"
+        desc="Client for my music streaming platform for mobile."
+        githubUrl="https://github.com/GKaszewski/music-streaming-app" github=true></app-project>
+        <app-project title="Space photos" technology="Python, Flask" github=true githubUrl="https://github.com/GKaszewski/Space-Photos"
+        desc="Website that shows you space photos from NASA database."></app-project>
+        <app-project title="GCD LCM App" technology="Java, Android" desc="This app calculates the greatest common divisor 
+        and the least common multiple."
+        github=true githubUrl="https://github.com/GKaszewski/GCD-LCM-App"></app-project>
+    </div>
+</div>
