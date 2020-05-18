@@ -14,4 +14,8 @@ export class ContactPageComponent implements OnInit {
     this.title.setTitle('Gabriel Kaszewski - Contact');
   }
 
+  goToPage(url : string) {
+    window.open(url);
+  }
+
 }
