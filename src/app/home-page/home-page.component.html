@@ -1,52 +1,37 @@
-<div class="center" fxLayout="column" fxLayoutAlign="space-evenly center" fxLayoutGap=40px>
-    <h1 display-1>My Projects</h1>
-    <div class="projects-section" fxLayoutGap=10px fxLayout="row wrap" fxLayoutAlign="flex-start" fxFlexAlign="strech">
-        <app-project github=true githubUrl="https://github.com/GKaszewski/SpeedKill" title="Speed Kill" technology="Unity, C#" desc="Fast-paced multiplayer FPS shooter!"
-        longDescription = "Main goal of this project was to learn how to make multiplayer games in Unity. 
-        This game has singleplayer mode and multiplayer as well. 
-        Important note: it has a lot of bugs. If you spot one, please make an issue."
-        ></app-project>
-        <app-project download=true downloadUrl="https://play.google.com/store/apps/details?id=com.gabrielkaszewski.talkingreggie" 
-        title="Talking Reggie" technology="Dart, Flutter" desc="App inspired by Victorious show." 
-        imgUrl="https://drive.google.com/uc?open=download&id=1vS32Kk25b4IDpTEB-PPYSlw_4hEkra9r"
-        longDescription = "I loved watching Victorious when I was a little kid. I have rewatched it on Netflix recenty
-        and I decided to write a similar app that was on Victorious. Reggie is a happy bear which loves copying and saying back
-        in his funny voice whatever you tell him. Talking Reggie is available on Google Play Store!"
-        ></app-project>
-        <app-project github=true visit=true githubUrl="https://github.com/GKaszewski/NetWorthCalculator" visitUrl="https://gkaszewski.github.io/NetWorthCalculator/"
-        title="Net Worth Calculator" technology="Angular, Typescript" desc="My first web application." 
-        longDescription = "This is simple calculator, it asks you about your assets and liabilities and then calculates your net worth."></app-project>
-        <button (click)="goToPage('projects')" mat-raised-button color="primary">Go to <mat-icon>assignment</mat-icon> for more!</button>
-    </div>
-    <h1 display-1>About me!</h1>
-    <div class="about-section" fxLayout="row wrap">
-        <section mat-typography>
-            <h2 display-2>Who am I?</h2>
+<div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap=1rem>
+    <h1 display-1>Hello there!</h1>
+    <div class="aboutme" fxLayout="column" fxLayoutAlign="none center">
+        <h2 display-2 class="zoom">Who am I?</h2>
+        <div fxLayout="column" fxLayoutAlign="none center">
             <p body-1>Hi, my name is Gabriel Kaszewski and I am a High School student right now.</p>
             <p body-1>I started coding when I was 11. I taught myself programming in C++.
-            But now I am a different person than I was 7 years ago. Now I write my programs in various languages.
-            Depends on the project if I make a game, I usually go with C# and Unity Engine, if I want to make a mobile app
-            I go with Dart and Flutter framework, for GUI applications I choose C++ and QT. I love solving problems and 
-            I hope that I'll work in one of FAANG companies in the future. I am very passionate about Computer Science and
-            after High School, I'm planning on studying it.
+                But now I am a different person than I was 7 years ago. Now I write my programs in various
+                languages.
+                Depends on the project if I make a game, I usually go with C# and Unity Engine, if I want to make a
+                mobile app
+                I go with Dart and Flutter framework, for GUI applications I choose C++ and QT. I love solving
+                problems and
+                I hope that I'll work in one of FAANG companies in the future. I am very passionate about Computer
+                Science and
+                after High School, I'm planning on studying it.
             </p>
-        </section>
-        <section mat-typography>
-            <h2 display-2>My skills</h2>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="none center">
+            <h2 display-2 class="zoom">My skills</h2>
             <mat-list>
-                <mat-list-item>Good knowlegde of C++, C#, Java, JavaScript, Python</mat-list-item>
-                <mat-list-item>Unity, Django, Flutter, Angular</mat-list-item>
-                <mat-list-item>Data Structures</mat-list-item>
-                <mat-list-item>Object-oriented design</mat-list-item>
-                <mat-list-item>Design patterns</mat-list-item>
-                <mat-list-item>Git & Linux</mat-list-item>
-                <mat-list-item>Fast learner</mat-list-item>
+                <mat-list-item class="zoom">Good knowlegde of C++, C#, Java, JavaScript, Python</mat-list-item>
+                <mat-list-item class="zoom">Unity, Django, Flutter, Angular</mat-list-item>
+                <mat-list-item class="zoom">Data Structures</mat-list-item>
+                <mat-list-item class="zoom">Object-oriented design</mat-list-item>
+                <mat-list-item class="zoom">Design patterns</mat-list-item>
+                <mat-list-item class="zoom">Git & Linux</mat-list-item>
+                <mat-list-item class="zoom">Fast learner</mat-list-item>
             </mat-list>
-        </section>
-        <section mat-typography>
-            <h2 display-2>My experience</h2>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="none center">
+            <h2 display-2 class="zoom">My experience</h2>
             <p body-1>I got my first job in November 2019 as Unity Developer in Mobil Titans company.
                 I have worked there until January 2020.</p>
-        </section>
+        </div>
     </div>
 </div>
