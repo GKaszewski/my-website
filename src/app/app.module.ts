@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,12 @@ import { ProjectModalComponent } from './project-modal/project-modal.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { FooterComponent } from './footer/footer.component';
+import {MatMenuModule} from '@angular/material/menu';
+import { ApiService } from './services/ApiService.service';
+import { BlogPageComponent } from './blog-page/blog-page.component';
+import { GalleryPageComponent } from './gallery-page/gallery-page.component';
+import { PhotoDetailPageComponent } from './photo-detail-page/photo-detail-page.component';
+import { PostDetailPageComponent } from './post-detail-page/post-detail-page.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +37,11 @@ import { FooterComponent } from './footer/footer.component';
     ContactPageComponent,
     ProjectComponent,
     ProjectModalComponent,
-    FooterComponent
+    FooterComponent,
+    BlogPageComponent,
+    GalleryPageComponent,
+    PhotoDetailPageComponent,
+    PostDetailPageComponent
   ],
   imports: [
     BrowserModule,
@@ -45,8 +56,12 @@ import { FooterComponent } from './footer/footer.component';
     MatDialogModule,
     MatDividerModule,
     MatListModule,
+    HttpClientModule,
+    MatMenuModule
   ],
-  providers: [],
+  providers: [
+    ApiService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
