@@ -7,10 +7,9 @@ import {Router} from '@angular/router'
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-
   constructor(private router : Router) {}
 
-  goToPage(pageName : string):void {
-    this.router.navigate([`${pageName}`]);
+  goToPage(url : string) {
+    window.open(url);
   }
 }
