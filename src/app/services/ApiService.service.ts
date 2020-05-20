@@ -6,7 +6,7 @@ import { Post } from '../models/post.model';
 
 @Injectable()
 export class ApiService {
-    private apiRoot = "http://127.0.0.1:8000/";
+    private apiRoot = "https://gabrielkaszewski-api.herokuapp.com/";
     
     constructor(private http : HttpClient){}
 
@@ -19,11 +19,11 @@ export class ApiService {
     }
 
     getPosts() {
-        return this.http.get<Post[]>(this.apiRoot.concat('blog/posts/'));
+        return this.http.get<any[]>(this.apiRoot.concat('blog/posts/'));
     }
 
     getPost(slug : string) {
-        return this.http.get<Post>(this.apiRoot.concat('blog/posts/').concat(slug));
+        return this.http.get<any>(this.apiRoot.concat('blog/posts/').concat(slug).concat('/'));
     }
 
     getPhoto(slug : string) {

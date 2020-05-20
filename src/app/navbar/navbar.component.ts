@@ -9,6 +9,10 @@ import {Router} from '@angular/router'
 export class NavbarComponent {
   constructor(private router : Router) {}
 
+  goToPageRouter(name : string) {
+    this.router.navigateByUrl(name);
+  }
+
   goToPage(url : string) {
     window.open(url);
   }

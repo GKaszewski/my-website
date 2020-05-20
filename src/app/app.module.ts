@@ -27,6 +27,7 @@ import { BlogPageComponent } from './blog-page/blog-page.component';
 import { GalleryPageComponent } from './gallery-page/gallery-page.component';
 import { PhotoDetailPageComponent } from './photo-detail-page/photo-detail-page.component';
 import { PostDetailPageComponent } from './post-detail-page/post-detail-page.component';
+import { ImageDialogComponent } from './image-dialog/image-dialog.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { PostDetailPageComponent } from './post-detail-page/post-detail-page.com
     BlogPageComponent,
     GalleryPageComponent,
     PhotoDetailPageComponent,
-    PostDetailPageComponent
+    PostDetailPageComponent,
+    ImageDialogComponent
   ],
   imports: [
     BrowserModule,

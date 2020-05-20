@@ -1,1 +1,7 @@
-<p>post-detail-page works!</p>
+<div *ngIf="post != null" fxLayout="column" fxLayoutGap=1rem>
+    <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="center center"><h1 display-1>{{post.title}}</h1></mat-toolbar>
+    <div class="post" fxLayout="column wrap" fxLayout.xs="row wrap">
+        <p body-1>{{post.created_on | date}}</p>
+        <p class="content" body-3 [innerHTML]="post.content"></p>
+    </div> 
+</div>

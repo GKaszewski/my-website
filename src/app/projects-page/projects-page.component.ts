@@ -20,6 +20,7 @@ export class ProjectsPageComponent implements OnInit {
       console.log(res);
       console.log(this.projects[0]);
     });
+    this.title.setTitle('Gabriel Kaszewski - Projects');
   }
 
 }

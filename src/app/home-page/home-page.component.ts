@@ -11,6 +11,6 @@ export class HomePageComponent implements OnInit{
   constructor(private title : Title) {}
 
   ngOnInit(): void {
-   
+   this.title.setTitle('Gabriel Kaszewski - Home');
   }  
 }

@@ -1,6 +1,6 @@
 <div fxLayout="column" fxLayoutGap=10px fxLayoutAlign="center center">
-  <img class="avatar" src="https://avatars3.githubusercontent.com/u/42281413?s=460&u=2dc9f164b278241c251086ce16da30812ffcb514&v=4">
-  <mat-toolbar class="navbar" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap=1rem>
+  <img (click)="goToPageRouter('/home')" class="avatar" src="https://avatars3.githubusercontent.com/u/42281413?s=460&u=2dc9f164b278241c251086ce16da30812ffcb514&v=4">
+  <mat-toolbar class="navbar" fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap=1rem>
     <a class="zoom" mat-button routerLink="/home" routerLinkActive="active">Home</a>
     <a class="zoom" mat-button routerLink="/projects" routerLinkActive="active">Projects</a>
     <a class="zoom" mat-button routerLink="/gallery" routerLinkActive="active">Gallery</a>
@@ -9,7 +9,6 @@
     <mat-menu #applications [overlapTrigger]="false">
       <button mat-button (click)="goToPage('https://gkaszewski.github.io/NetWorthCalculator/')">Net worth calculator</button>
       <mat-divider></mat-divider>
-      <button mat-button>Family tree</button>
     </mat-menu>
     <a class="zoom" mat-button routerLink="/contact" routerLinkActive="active">Contact</a>
   </mat-toolbar>
