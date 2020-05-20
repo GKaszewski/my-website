@@ -2,4 +2,16 @@
 @import 'theme.scss';
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; overflow: hidden;}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
+a, a:hover, a:visited, a:active, a:link {
+    text-decoration: none;
+    color: black;
+}
+
+.zoom {
+    transition: transform .2s;
+}
+
+.zoom:hover {
+    transform: scale(1.5);
+}

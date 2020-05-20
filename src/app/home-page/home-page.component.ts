@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -8,14 +7,10 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit{
-
-  constructor(private router : Router, private title : Title) {}
+  
+  constructor(private title : Title) {}
 
   ngOnInit(): void {
-    this.title.setTitle("Gabriel Kaszewski - Home");
-  }
-  
-  goToPage(pageName : string):void {
-    this.router.navigate([`${pageName}`]);
-  }
+   this.title.setTitle('Gabriel Kaszewski - Home');
+  }  
 }
