@@ -1,18 +1,18 @@
-<mat-dialog-content>
+<mat-dialog-content class="dialog">
     <button class="close-button" mat-icon-button color="primary" [mat-dialog-close]="true"><mat-icon>close</mat-icon></button>
-    <mat-card class="project-card">
-        <mat-card-header>
-            <mat-card-title>{{data.title}}</mat-card-title>
-            <mat-card-subtitle>{{data.tech}}</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content fxLayoutGap=10px>
-            <img class="banner" mat-card-image src="{{data.imgUrl}}">
+    <div fxLayout="column" fxLayoutAlign="center center" fxLayout.xs="column wrap">
+        <div>
+            <h1 display-1>{{data.title}}</h1>
+            <h3 display-3>{{data.tech}}</h3>
+        </div>
+        <img class="banner" mat-card-image src="{{data.imgUrl}}">
+        <div>
             <p>{{data.longDesc}}</p>
-        </mat-card-content>
-        <mat-card-actions>
-           <button *ngIf="data.githubUrl" mat-raised-button color="primary" (click)="goToPage(data.githubUrl)">Github</button>
-           <button *ngIf="data.downloadUrl" mat-raised-button color="primary" (click)="goToPage(data.downloadUrl)">Download<mat-icon>get_app</mat-icon></button>
-           <button *ngIf="data.visitUrl" mat-raised-button color="primary" (click)="goToPage(data.visitUrl)">Visit</button>
-        </mat-card-actions>
-    </mat-card>
+        </div>
+        <div fxLayout="row" fxLayout.xs="row wrap" fxLayoutGap=1rem>
+            <button *ngIf="data.githubUrl" mat-raised-button color="primary" (click)="goToPage(data.githubUrl)">Github</button>
+            <button *ngIf="data.downloadUrl" mat-raised-button color="primary" (click)="goToPage(data.downloadUrl)">Download<mat-icon>get_app</mat-icon></button>
+            <button *ngIf="data.visitUrl" mat-raised-button color="primary" (click)="goToPage(data.visitUrl)">Visit</button>
+        </div>
+    </div>
 </mat-dialog-content>

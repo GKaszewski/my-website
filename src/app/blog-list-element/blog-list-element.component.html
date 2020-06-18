@@ -1,0 +1,5 @@
+<div>
+    <a display-3 [routerLink]="['/blog/posts', post.slug]">{{post.title}}</a>
+    <p body-2>{{(post.content | slice:0:50)+'...' }}</p>
+    <p body-2>{{post.created_on | date}}</p>
+</div>

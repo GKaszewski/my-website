@@ -1,5 +1,6 @@
-<div clas="center" fxLayout="column" fxLayoutAlign="space-evenly center" fxLayoutGap=40px>
+<div class="projects-page" fxLayout="column" fxLayoutAlign="space-evenly center" fxLayoutGap=40px>
     <h1 display-1>My Projects</h1>
+    <app-loader></app-loader>
     <div class="projects-section" fxLayout="row wrap" fxLayoutAlign="space-evenly" fxLayoutGap="20px grid">
         <div *ngFor="let project of projects">
             <app-project title="{{project.name}}" technology="{{project.technology}}" desc="{{project.shortDescription}}"
