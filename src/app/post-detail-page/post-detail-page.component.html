@@ -1,8 +1,7 @@
-<app-loader></app-loader>
 <div *ngIf="post != null" fxLayout="column" fxLayoutGap=1rem>
     <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="center center"><h1 display-1>{{post.title}}</h1></mat-toolbar>
     <div class="post" fxLayout="column wrap" fxLayout.xs="row wrap">
         <p body-1>{{post.created_on | date}}</p>
-        <markdown class="content" ngPreserveWhitespaces [data]="post.content"></markdown>
+        <p class="content" body-3 [innerHTML]="post.content"></p>
     </div> 
 </div>

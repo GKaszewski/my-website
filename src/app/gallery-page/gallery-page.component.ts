@@ -1,30 +1,27 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/ApiService.service';
 import { Photo } from '../models/photo.model';
 import { Title } from '@angular/platform-browser';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-gallery-page',
   templateUrl: './gallery-page.component.html',
   styleUrls: ['./gallery-page.component.scss']
 })
-export class GalleryPageComponent implements OnInit, OnDestroy {
+export class GalleryPageComponent implements OnInit {
   photos : Photo[] = [];
-  sub : Subscription;
   constructor(private apiService : ApiService, private title : Title) { }
 
-  ngOnDestroy(): void {
-    this.sub.unsubscribe();
-  }
-
   ngOnInit(): void {
-    this.sub = this.apiService.getPhotos().subscribe(res => {
+    this.apiService.getPhotos().subscribe(res => {
       res.forEach(photo => {
+        console.log(photo.image);
         this.photos.push(photo);
+        console.log(photo);
       });
       this.photos = res;
     });
+    console.log(this.photos);
     this.title.setTitle('Gabriel Kaszewski - Gallery');
   }
 

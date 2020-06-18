@@ -1,16 +1,15 @@
 <div fxLayout="column" fxLayoutGap=10px fxLayoutAlign="center center">
-  <a routerLinkActive="active" routerLink="/home"><img class="avatar" src="https://avatars3.githubusercontent.com/u/42281413?s=460&u=2dc9f164b278241c251086ce16da30812ffcb514&v=4"></a>
+  <img (click)="goToPageRouter('/home')" class="avatar" src="https://avatars3.githubusercontent.com/u/42281413?s=460&u=2dc9f164b278241c251086ce16da30812ffcb514&v=4">
   <mat-toolbar class="navbar" fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap=1rem>
-    <a mat-button routerLink="/home" routerLinkActive="active">Home</a>
-    <a mat-button routerLink="/projects" routerLinkActive="active">Projects</a>
-    <a mat-button routerLink="/gallery" routerLinkActive="active">Gallery</a>
-    <a mat-button routerLink="/blog" routerLinkActive="active">Blog</a>
-    <a mat-button [matMenuTriggerFor]="applications">Applications</a>
+    <a class="zoom" mat-button routerLink="/home" routerLinkActive="active">Home</a>
+    <a class="zoom" mat-button routerLink="/projects" routerLinkActive="active">Projects</a>
+    <a class="zoom" mat-button routerLink="/gallery" routerLinkActive="active">Gallery</a>
+    <a class="zoom" mat-button routerLink="/blog" routerLinkActive="active">Blog</a>
+    <a class="zoom" mat-button [matMenuTriggerFor]="applications">Applications</a>
     <mat-menu #applications [overlapTrigger]="false">
       <button mat-button (click)="goToPage('https://gkaszewski.github.io/NetWorthCalculator/')">Net worth calculator</button>
       <mat-divider></mat-divider>
-      <button mat-button (click)="goToPage('https://gkaszewski.github.io/secret-santa/')">Secret Santa</button>
     </mat-menu>
-    <a mat-button routerLink="/contact" routerLinkActive="active">Contact</a>
+    <a class="zoom" mat-button routerLink="/contact" routerLinkActive="active">Contact</a>
   </mat-toolbar>
 </div>

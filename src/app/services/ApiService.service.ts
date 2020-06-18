@@ -11,7 +11,7 @@ export class ApiService {
     constructor(private http : HttpClient){}
 
     getProjects() {
-        return this.http.get<any[]>(this.apiRoot.concat('projects/project-item/'));
+        return this.http.get<Project[]>(this.apiRoot.concat('projects/project-item/'));
     }
 
     getPhotos() {

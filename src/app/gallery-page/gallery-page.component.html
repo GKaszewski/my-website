@@ -1,6 +1,5 @@
 <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap=1rem>
     <h1 display-1>PHOTOS</h1>
-    <app-loader></app-loader>
     <div class="gallery-view" fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap=1rem fxLayout.xs="column wrap">
         <app-photo-detail-page *ngFor="let photo of photos" [photo]="photo"></app-photo-detail-page>
         <p body-1 *ngIf="photos.length == 0">Nothing here yet 😔</p>

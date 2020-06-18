@@ -4,7 +4,7 @@
         <mat-card-subtitle>{{technology}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-        <img class="thumbnail" *ngIf="imgUrl" mat-card-image src="{{imgUrl}}">
+        <img *ngIf="imgUrl" mat-card-image src="{{imgUrl}}">
         <p>{{desc}}</p>
     </mat-card-content>
     <mat-card-actions class="actions">

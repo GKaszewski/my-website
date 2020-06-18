@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,23 +21,13 @@ import { ProjectModalComponent } from './project-modal/project-modal.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { FooterComponent } from './footer/footer.component';
-import { MatMenuModule } from '@angular/material/menu';
+import {MatMenuModule} from '@angular/material/menu';
 import { ApiService } from './services/ApiService.service';
 import { BlogPageComponent } from './blog-page/blog-page.component';
 import { GalleryPageComponent } from './gallery-page/gallery-page.component';
 import { PhotoDetailPageComponent } from './photo-detail-page/photo-detail-page.component';
 import { PostDetailPageComponent } from './post-detail-page/post-detail-page.component';
 import { ImageDialogComponent } from './image-dialog/image-dialog.component';
-import { BlogListElementComponent } from './blog-list-element/blog-list-element.component';
-import { LoaderComponent } from './loader/loader.component';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { LoaderService } from './services/loader.service'
-import { LoaderInterceptor } from './interceptors/loader.interceptor';
-import { TokenInterceptor } from './interceptors/token.interceptor';
-import { MarkdownModule } from 'ngx-markdown';
-import { AuthService } from './services/auth.service';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -53,9 +43,7 @@ import { environment } from '../environments/environment';
     GalleryPageComponent,
     PhotoDetailPageComponent,
     PostDetailPageComponent,
-    ImageDialogComponent,
-    BlogListElementComponent,
-    LoaderComponent,
+    ImageDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -71,17 +59,10 @@ import { environment } from '../environments/environment';
     MatDividerModule,
     MatListModule,
     HttpClientModule,
-    MatMenuModule,
-    MatProgressSpinnerModule,
-    MarkdownModule.forRoot(),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    MatMenuModule
   ],
   providers: [
     ApiService,
-    LoaderService,
-    AuthService,
-    {provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true},
-    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
   ],
   bootstrap: [AppComponent]
 })
