@@ -13,6 +13,8 @@ export class TokenInterceptor implements HttpInterceptor {
     constructor(public auth : AuthService) {}
 
     intercept(req: HttpRequest<any>, next: HttpHandler): import("rxjs").Observable<HttpEvent<any>> {
+        if(this.auth.getToken().length == 0) return next.handle(req);
+        
         let request = req.clone({
             setHeaders: {
                 Authorization : `Token ${this.auth.getToken()}`
