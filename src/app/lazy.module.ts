@@ -9,6 +9,9 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { GalleryPageComponent } from './gallery-page/gallery-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { ProjectsPageComponent } from './projects-page/projects-page.component';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { TriviasPageComponent } from './trivias-page/trivias-page.component';
+import { CreateTriviaComponent } from './create-trivia/create-trivia.component';
 
 const routes : Routes = [
   {path: "projects", component: ProjectsPageComponent},
@@ -16,6 +19,9 @@ const routes : Routes = [
   {path: "blog", component: BlogPageComponent},
   {path: "blog/posts/:slug", component: PostDetailPageComponent},
   {path: "gallery", component: GalleryPageComponent},
+  {path: 'login', component: LoginPageComponent},
+  {path: 'trivias', component: TriviasPageComponent},
+  {path: 'trivias/add', component: CreateTriviaComponent},
 ]
 
 @NgModule({

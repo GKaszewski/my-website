@@ -38,7 +38,14 @@ import { MarkdownModule } from 'ngx-markdown';
 import { AuthService } from './services/auth.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-
+import { TriviaComponent } from './trivia/trivia.component';
+import { TriviasPageComponent } from './trivias-page/trivias-page.component';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+import { CreateTriviaComponent } from './create-trivia/create-trivia.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +61,11 @@ import { environment } from '../environments/environment';
     PhotoDetailPageComponent,
     PostDetailPageComponent,
     ImageDialogComponent,
+    TriviaComponent,
+    TriviasPageComponent,
+    LoginPageComponent,
     BlogListElementComponent,
+    CreateTriviaComponent,
     LoaderComponent,
   ],
   imports: [
@@ -73,6 +84,10 @@ import { environment } from '../environments/environment';
     HttpClientModule,
     MatMenuModule,
     MatProgressSpinnerModule,
+    MatExpansionModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatInputModule,
     MarkdownModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
@@ -80,8 +95,8 @@ import { environment } from '../environments/environment';
     ApiService,
     LoaderService,
     AuthService,
-    {provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true},
-    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })
