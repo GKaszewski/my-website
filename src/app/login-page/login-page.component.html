@@ -1,0 +1,21 @@
+<div *ngIf="auth.isAuth() == false" fxLayout="column" fxLayoutGap=10px class="loginPage" fxLayoutAlign="none center">
+    <h2 display-2>Login</h2>
+    <form class="loginForm" fxLayout="column">
+        <mat-form-field>
+            <mat-label>Username</mat-label>
+            <input name="username" [(ngModel)]="username" matInput type="text">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input name="password" [(ngModel)]="password" matInput type="password">
+        </mat-form-field>
+        <div fxLayout="row">
+            <span fxFlex></span>
+            <button (click)="login()" class="loginButton" color="primary" type="submit" mat-flat-button>Login</button>
+            <span fxFlex></span>
+        </div>
+    </form>
+</div>
+<div *ngIf="auth.isAuth()" fxLayout="column" fxLayoutGap=10px class="loginPage" fxLayoutAlign="none center">
+    <button mat-button (click)="logout()">Logout</button>
+</div>
