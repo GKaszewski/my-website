@@ -1,6 +1,7 @@
 <div fxLayout="column" fxLayout.xs="column wrap" fxLayoutGap=1rem fxLayoutAlign="none center">
     <p *ngIf="!auth.isAuth()">You must be logged in to add new trivias!</p>
-    <div *ngIf="auth.isAuth()" class="create-panel">
+    <div *ngIf="auth.isAuth()" class="create-panel" fxLayout="column" fxLayout.xs="column wrap" fxLayoutGap=1rem>
+        <h2 display-2>Upload trivia</h2>
         <mat-accordion multi class="trivia">
         <mat-expansion-panel [expanded]=true>
             <mat-expansion-panel-header>
@@ -19,5 +20,17 @@
             </form>
         </mat-expansion-panel>
     </mat-accordion>
-    </div>
+    <mat-divider></mat-divider>
+    <h2 display-2>Upload multiple trivias</h2>
+    <div fxLayout="column" fxLayout.xs="column wrap" fxLayoutGap=15px>
+        <form #form>
+            <input #fileInput hidden required type="file" (change)="onFileChange($event)">
+            <button type="button" mat-flat-button color="primary" (click)="fileInput.click(); form.reset()">Upload JSON file</button>
+        </form>
+        <div *ngIf="uploadedTrivias" fxLayout="column" fxLayout.xs="column wrap" fxLayoutGap=1rem>
+            <app-trivia *ngFor="let trivia of triviasToAdd" [triva]="trivia"></app-trivia>
+        </div>
+        <button *ngIf="uploadedTrivias" mat-flat-button color="primary" (click)="addMultipleTrivias()">Add {{triviasToAdd.length}} trivias</button>
+        </div>
+    </div> 
 </div>
