@@ -1,0 +1,4 @@
+<div fxLayout="column" fxLayout.xs="column wrap" fxLayoutGap=1rem fxLayoutAlign="none center">
+    <app-trivia class="trivia-element" *ngFor="let trivia of trivias" [triva]="trivia"></app-trivia>
+    <button routerLink="/trivias/add" mat-flat-button color="primary">Add new trivia</button>
+</div>

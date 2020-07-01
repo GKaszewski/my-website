@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Project } from '../models/project.model';
 import { Photo } from '../models/photo.model';
-import { Post } from '../models/post.model';
+import { Trivia } from '../models/trivia.model';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class ApiService {
@@ -28,5 +28,17 @@ export class ApiService {
 
     getPhoto(slug : string) {
         return this.http.get<Photo>(this.apiRoot.concat('gallery/').concat(slug));
+    }
+
+    getTrivias() : Observable<Trivia[]> {
+        return this.http.get<Trivia[]>(this.apiRoot.concat('trivias/'));
+    }
+
+    getTrivia(slug : string) : Observable<Trivia> {
+        return this.http.get<Trivia>(this.apiRoot.concat('trivias/').concat(slug).concat('/')); 
+    }
+
+    postTrivia(trivia : Trivia) : Observable<Trivia> {
+        return this.http.post<Trivia>(this.apiRoot.concat('trivias/'), {name: trivia.name, content: trivia.content, slug : trivia.slug});
     }
 }
