@@ -3,17 +3,23 @@ import { Trivia } from '../models/trivia.model';
 import { ApiService } from '../services/ApiService.service';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../services/auth.service';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-create-trivia',
   templateUrl: './create-trivia.component.html',
   styleUrls: ['./create-trivia.component.scss']
 })
-export class CreateTriviaComponent implements OnDestroy {
+export class CreateTriviaComponent implements OnInit, OnDestroy {
   data : Trivia = new Trivia();
   sub : Subscription;
 
-  constructor(private apiService : ApiService, public auth : AuthService) { }
+  constructor(private apiService : ApiService, public auth : AuthService, private title : Title, private meta : Meta) { }
+  
+  ngOnInit(): void {
+    this.title.setTitle('Gabriel Kaszewski - Add trivia');
+    this.meta.updateTag({name: 'description', content: 'Add new trivia.'});
+  }
 
   ngOnDestroy(): void {
     if(this.sub != null)

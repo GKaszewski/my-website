@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ApiService } from '../services/ApiService.service';
 import { Photo } from '../models/photo.model';
-import { Title } from '@angular/platform-browser';
+import { Title, Meta } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs';
 export class GalleryPageComponent implements OnInit, OnDestroy {
   photos : Photo[] = [];
   sub : Subscription;
-  constructor(private apiService : ApiService, private title : Title) { }
+  constructor(private apiService : ApiService, private title : Title, private meta : Meta) { }
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();
@@ -26,6 +26,7 @@ export class GalleryPageComponent implements OnInit, OnDestroy {
       this.photos = res;
     });
     this.title.setTitle('Gabriel Kaszewski - Gallery');
+    this.meta.updateTag({name: 'description', content: 'My amazing photographs.'});
   }
 
 }

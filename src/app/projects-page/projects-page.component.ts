@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Title, Meta } from '@angular/platform-browser';
 import { Project } from '../models/project.model';
 import { ApiService } from '../services/ApiService.service';
 import { Subscription } from 'rxjs';
@@ -13,7 +13,7 @@ export class ProjectsPageComponent implements OnInit, OnDestroy {
   projects : Project[];
   sub : Subscription;
 
-  constructor(private title : Title, private api : ApiService) { }
+  constructor(private title : Title, private api : ApiService, private meta : Meta) { }
   
   ngOnDestroy(): void {
     this.sub.unsubscribe();
@@ -29,6 +29,7 @@ export class ProjectsPageComponent implements OnInit, OnDestroy {
       }
     });
     this.title.setTitle('Gabriel Kaszewski - Projects');
+    this.meta.updateTag({name: 'description', content: 'My projects'});
   }
 
 }

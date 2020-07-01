@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Post } from '../models/post.model';
 import { ApiService } from '../services/ApiService.service';
 import { Router } from '@angular/router';
-import { Title } from '@angular/platform-browser';
+import { Title, Meta } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -14,7 +14,7 @@ export class BlogPageComponent implements OnInit, OnDestroy {
   posts : Post[] = [];
   sub : Subscription;
 
-  constructor(private apiService : ApiService, private router : Router, private title : Title) { }
+  constructor(private apiService : ApiService, private router : Router, private title : Title, private meta : Meta) { }
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();
@@ -36,6 +36,7 @@ export class BlogPageComponent implements OnInit, OnDestroy {
       });
     });
     this.title.setTitle('Gabriel Kaszewski - Blog');
+    this.meta.updateTag({name: 'description', content: 'Blog about programming and my life style.'});
   }
 
   goToPost(slug) {

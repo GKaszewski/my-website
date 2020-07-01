@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Post } from '../models/post.model';
 import { ApiService } from '../services/ApiService.service';
-import { Title } from '@angular/platform-browser';
+import { Title, Meta } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -15,7 +15,7 @@ export class PostDetailPageComponent implements OnInit, OnDestroy {
   slug : string;
   sub : Subscription;
   otherSub : Subscription;
-  constructor(private route : ActivatedRoute, private apiService : ApiService, private title : Title) { }
+  constructor(private route : ActivatedRoute, private apiService : ApiService, private title : Title, private meta : Meta) { }
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();
@@ -35,6 +35,7 @@ export class PostDetailPageComponent implements OnInit, OnDestroy {
         this.post.id = res.id;
         this.post.status = res.status;
         this.title.setTitle(res.title);
+        this.meta.updateTag({name: 'description', content: this.post.content.slice(0, 70).concat('...')});
       });
     });
   }
