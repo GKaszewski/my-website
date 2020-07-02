@@ -39,7 +39,7 @@ export class ApiService {
     }
 
     postTrivia(trivia : Trivia) : Observable<Trivia> {
-        return this.http.post<Trivia>(this.apiRoot.concat('trivias/'), JSON.stringify(trivia));
+        return this.http.post<Trivia>(this.apiRoot.concat('trivias/'), JSON.parse(JSON.stringify(trivia)));
     }
 
     postTrivias(trivias : Trivia[]) : Observable<Trivia[]> {
