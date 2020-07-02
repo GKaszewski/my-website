@@ -46,6 +46,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { CreateTriviaComponent } from './create-trivia/create-trivia.component';
+import { TriviaEditorComponent } from './trivia-editor/trivia-editor.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,6 +67,7 @@ import { CreateTriviaComponent } from './create-trivia/create-trivia.component';
     LoginPageComponent,
     BlogListElementComponent,
     CreateTriviaComponent,
+    TriviaEditorComponent,
     LoaderComponent,
   ],
   imports: [
