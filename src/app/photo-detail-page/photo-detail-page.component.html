@@ -1,5 +1,5 @@
 <div fxLayout="column" fxLayoutAlign="center none" fxLayoutGap=1rem class="photo-block" *ngIf="photo != null">
   <h2 display-2>{{photo.title}}</h2>
-  <img (click)="showOnFullscreen()" [src]="photo.imageUrl" width="300px" height="300px">
+  <img class="image" (click)="showOnFullscreen()" [src]="photo.imageUrl">
   <p body-2>{{photo.description}}</p>
 </div>
