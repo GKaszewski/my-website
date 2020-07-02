@@ -1,9 +1,9 @@
 .projects-section {
-    margin-left: 3rem;
-    margin-right: 3rem;
+   width: 50%;
 }
 
-.projects-page {
-    margin-left: 10%;
-    margin-right: 10%;
+.accordion {
+    flex-basis: 0;
+    justify-content: space-between;
+    align-items: center;
 }

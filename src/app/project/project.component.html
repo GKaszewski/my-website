@@ -1,16 +1,14 @@
-<mat-card class="project-card" fxLayout="column" fxLayoutAlign="stretch" fxLayoutGap=20px>
-    <mat-card-header>
-        <mat-card-title>{{title}}</mat-card-title>
-        <mat-card-subtitle>{{technology}}</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-        <img class="thumbnail" *ngIf="imgUrl" mat-card-image src="{{imgUrl}}">
-        <p>{{desc}}</p>
-    </mat-card-content>
-    <mat-card-actions class="actions">
-        <button *ngIf="longDescription" mat-raised-button color="primary" (click)="openModal()">Read more</button>
+<mat-expansion-panel class="project" [expanded]=true>
+    <mat-expansion-panel-header>
+      <mat-panel-title>{{title}}</mat-panel-title>
+      <mat-panel-description>{{technology}}</mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>{{desc}}</p>
+    <p>{{longDescription}}</p>
+    <img class="thumbnail" *ngIf="imgUrl" mat-card-image src="{{imgUrl}}">
+    <div fxLayout="row" fxLayout.xs="row wrap" fxLayoutGap=1rem fxLayoutAlign="center">
         <button *ngIf="!longDescription&&githubUrl" mat-raised-button color="primary" (click)="goToPage(githubUrl)">Github</button>
         <button *ngIf="!longDescription&&downloadUrl" mat-raised-button color="primary" (click)="goToPage(downloadUrl)">Download<mat-icon>get_app</mat-icon></button>
         <button *ngIf="!longDescription&&visitUrl" mat-raised-button color="primary" (click)="goToPage(visitUrl)">Visit</button>
-    </mat-card-actions>
-</mat-card>
+    </div>
+</mat-expansion-panel>

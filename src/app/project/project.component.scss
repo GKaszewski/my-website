@@ -1,15 +1,17 @@
-.project-card {
-    max-width: 200px;
-    height: 350px;
-    max-height: 350px;
+.project {
+    width: 100%;
+    max-width: 100%;
 }
 
 .thumbnail {
-    width: 200px;
-    max-width: 200px;
-    height: 112px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.actions {
-    margin-top: auto;
+p {
+    hyphens: auto;
+    word-wrap: break-word;
+    white-space: normal;
+    text-align: justify;
 }

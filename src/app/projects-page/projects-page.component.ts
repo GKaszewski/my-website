@@ -1,8 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { Project } from '../models/project.model';
 import { ApiService } from '../services/ApiService.service';
 import { Subscription } from 'rxjs';
+import { MatAccordion } from '@angular/material/expansion';
 
 @Component({
   selector: 'app-projects-page',
@@ -12,7 +13,7 @@ import { Subscription } from 'rxjs';
 export class ProjectsPageComponent implements OnInit, OnDestroy {
   projects : Project[];
   sub : Subscription;
-
+  @ViewChild(MatAccordion) accordion : MatAccordion;
   constructor(private title : Title, private api : ApiService, private meta : Meta) { }
   
   ngOnDestroy(): void {
