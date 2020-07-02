@@ -2,27 +2,15 @@
     <p *ngIf="!auth.isAuth()">You must be logged in to add new trivias!</p>
     <div *ngIf="auth.isAuth()" class="create-panel" fxLayout="column" fxLayout.xs="column wrap" fxLayoutGap=1rem>
         <h2 display-2>Upload trivia</h2>
-        <mat-accordion multi class="trivia">
-        <mat-expansion-panel [expanded]=true>
-            <mat-expansion-panel-header>
-              <mat-panel-title>Trivia</mat-panel-title>
-            </mat-expansion-panel-header>
-            <form #form="ngForm">
-                <mat-form-field>
-                    <mat-label>Name</mat-label>
-                    <input required name="name" [(ngModel)]="data.name" matInput type="text">
-                </mat-form-field>
-                <mat-form-field>
-                    <mat-label>Content</mat-label>
-                    <textarea required cdkTextareaAutosize #autoSize="cdkTextareaAutosize"  name="content" [(ngModel)]="data.content" matInput type="text"></textarea>
-                </mat-form-field>
-                <button type="submit" mat-flat-button color="primary" (click)="addNewTrivia(); form.reset()">Add</button>
-            </form>
-        </mat-expansion-panel>
-    </mat-accordion>
+        <app-trivia-editor></app-trivia-editor>
+        <app-trivia-editor (addEvent)="removeTriviaPanel()" *ngFor="let i of triviaPanels"></app-trivia-editor>
+        <div fxLayout="row" fxLayout.xs="row wrap" fxLayoutGap=1rem>
+            <button mat-icon-button color="primary" (click)="addNewTriviaPanel()"><mat-icon>add</mat-icon></button>
+            <button mat-icon-button color="primary" (click)="removeTriviaPanel()"><mat-icon>remove</mat-icon></button>
+        </div>
     <mat-divider></mat-divider>
     <h2 display-2>Upload multiple trivias</h2>
-    <div fxLayout="column" fxLayout.xs="column wrap" fxLayoutGap=15px>
+    <div fxLayout="column" fxLayout.xs="column wrap" fxLayoutGap=1rem>
         <form #form>
             <input #fileInput hidden required type="file" (change)="onFileChange($event)">
             <button type="button" mat-flat-button color="primary" (click)="fileInput.click(); form.reset()">Upload JSON file</button>

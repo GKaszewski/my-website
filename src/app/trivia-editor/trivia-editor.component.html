@@ -1,0 +1,18 @@
+<mat-accordion multi class="trivia">
+    <mat-expansion-panel [expanded]=true>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Trivia</mat-panel-title>
+        </mat-expansion-panel-header>
+        <form #form="ngForm">
+            <mat-form-field>
+                <mat-label>Name</mat-label>
+                <input required name="name" [(ngModel)]="data.name" matInput type="text">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Content</mat-label>
+                <textarea required cdkTextareaAutosize #autoSize="cdkTextareaAutosize"  name="content" [(ngModel)]="data.content" matInput type="text"></textarea>
+            </mat-form-field>
+            <button type="submit" mat-flat-button color="primary" (click)="addNewTrivia(); form.reset()">Add</button>
+        </form>
+    </mat-expansion-panel>
+</mat-accordion>

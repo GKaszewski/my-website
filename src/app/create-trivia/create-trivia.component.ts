@@ -4,6 +4,7 @@ import { ApiService } from '../services/ApiService.service';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 import { Title, Meta } from '@angular/platform-browser';
+import { TriviaEditorComponent } from '../trivia-editor/trivia-editor.component';
 @Component({
   selector: 'app-create-trivia',
   templateUrl: './create-trivia.component.html',
@@ -13,6 +14,7 @@ export class CreateTriviaComponent implements OnInit, OnDestroy {
   data : Trivia = new Trivia();
   sub : Subscription;
   jsonFile : File;
+  triviaPanels = [];
   triviasToAdd : Trivia[] = [];
   uploadedTrivias : boolean = false;
 
@@ -28,15 +30,16 @@ export class CreateTriviaComponent implements OnInit, OnDestroy {
       this.sub.unsubscribe();
   }
 
-  addNewTrivia() {
-    this.data.slug = this.createSlug(this.data.name);
-    this.sub = this.apiService.postTrivia(this.data).subscribe(res => {
-      console.log(res);
-    });
-  }
-
   createSlug(name) : string {
     return name.toLowerCase().replace(/[^a-z0-9 -]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-');
+  }
+
+  addNewTriviaPanel() {
+    this.triviaPanels.length++;
+  }
+
+  removeTriviaPanel() {
+    this.triviaPanels.length--;
   }
 
   async readFile(file){
