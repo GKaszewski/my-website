@@ -1,27 +1,23 @@
-# Website
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+# My website
+This project is written using Angular 9. 
+![image](https://user-images.githubusercontent.com/42281413/86944131-98494980-c147-11ea-9681-6a1cf3f4db9e.png)
+## Dependencies
+* [ngx-markdown](https://www.npmjs.com/package/ngx-markdown) 
+* [flex-layout](https://github.com/angular/flex-layout)
+* [Angular Material](https://material.angular.io/)
+* [ngx-cookie-service](https://www.npmjs.com/package/ngx-cookie-service)
+## Features
+* List of my projects with description and links.
+* Gallery
+* Blog
+* List of trivias with admin panel
+* User authentication
+## To do
+* Blog editor
+* Blog search tool and filter
+* Statistics and analytics panel
+* Family tree
+## Showcase
+![ezgif-2-03af0261b3b9](https://user-images.githubusercontent.com/42281413/86945120-f1fe4380-c148-11ea-99c2-8548df72ff2d.gif)
+![image](https://user-images.githubusercontent.com/42281413/86945258-2540d280-c149-11ea-8800-dd863ba85b91.png)
+![image](https://user-images.githubusercontent.com/42281413/86945364-3853a280-c149-11ea-85ae-5d1878783081.png)
