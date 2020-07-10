@@ -6,9 +6,9 @@
     <p>{{desc}}</p>
     <p>{{longDescription}}</p>
     <img class="thumbnail" *ngIf="imgUrl" mat-card-image src="{{imgUrl}}">
-    <div fxLayout="row" fxLayout.xs="row wrap" fxLayoutGap=1rem fxLayoutAlign="center">
-        <button *ngIf="!longDescription&&githubUrl" mat-raised-button color="primary" (click)="goToPage(githubUrl)">Github</button>
-        <button *ngIf="!longDescription&&downloadUrl" mat-raised-button color="primary" (click)="goToPage(downloadUrl)">Download<mat-icon>get_app</mat-icon></button>
-        <button *ngIf="!longDescription&&visitUrl" mat-raised-button color="primary" (click)="goToPage(visitUrl)">Visit</button>
+    <div fxLayout="row" fxLayout.xs="row wrap" fxLayoutGap=1rem>
+    <button *ngIf="githubUrl" mat-raised-button color="primary" (click)="goToPage(githubUrl)">Github</button>
+    <button *ngIf="downloadUrl" mat-raised-button color="primary" (click)="goToPage(downloadUrl)">Download<mat-icon>get_app</mat-icon></button>
+    <button *ngIf="visitUrl" mat-raised-button color="primary" (click)="goToPage(visitUrl)">Visit</button>
     </div>
 </mat-expansion-panel>
