@@ -3,6 +3,7 @@ export class Project {
     technology : string;
     shortDescription : string;
     description : string;
+    category : string;
     githubUrl : string;
     downloadUrl : string;
     visitUrl : string;
