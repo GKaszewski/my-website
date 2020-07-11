@@ -17,7 +17,6 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
 import { ProjectComponent } from './project/project.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
-import { ProjectModalComponent } from './project-modal/project-modal.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { FooterComponent } from './footer/footer.component';
@@ -55,7 +54,6 @@ import { TriviaEditorComponent } from './trivia-editor/trivia-editor.component';
     ProjectsPageComponent,
     ContactPageComponent,
     ProjectComponent,
-    ProjectModalComponent,
     FooterComponent,
     BlogPageComponent,
     GalleryPageComponent,
