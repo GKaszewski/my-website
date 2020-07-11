@@ -1,14 +1,14 @@
 <mat-expansion-panel class="project" [expanded]=true>
     <mat-expansion-panel-header>
-      <mat-panel-title>{{title}}</mat-panel-title>
-      <mat-panel-description>{{technology}}</mat-panel-description>
+      <mat-panel-title>{{data.name}}</mat-panel-title>
+      <mat-panel-description>{{data.technology}}</mat-panel-description>
     </mat-expansion-panel-header>
-    <p>{{desc}}</p>
-    <p>{{longDescription}}</p>
-    <img class="thumbnail" *ngIf="imgUrl" mat-card-image src="{{imgUrl}}">
+    <p>{{data.shortDescription}}</p>
+    <p>{{data.description}}</p>
+    <img class="thumbnail" *ngIf="data.thumbnailUrl" mat-card-image src="{{data.thumbnailUrl}}">
     <div fxLayout="row" fxLayout.xs="row wrap" fxLayoutGap=1rem>
-    <button *ngIf="githubUrl" mat-raised-button color="primary" (click)="goToPage(githubUrl)">Github</button>
-    <button *ngIf="downloadUrl" mat-raised-button color="primary" (click)="goToPage(downloadUrl)">Download<mat-icon>get_app</mat-icon></button>
-    <button *ngIf="visitUrl" mat-raised-button color="primary" (click)="goToPage(visitUrl)">Visit</button>
+    <button *ngIf="data.githubUrl" mat-raised-button color="primary" (click)="goToPage(data.githubUrl)">Github</button>
+    <button *ngIf="data.downloadUrl" mat-raised-button color="primary" (click)="goToPage(data.downloadUrl)">Download<mat-icon>get_app</mat-icon></button>
+    <button *ngIf="data.visitUrl" mat-raised-button color="primary" (click)="goToPage(data.visitUrl)">Visit</button>
     </div>
 </mat-expansion-panel>

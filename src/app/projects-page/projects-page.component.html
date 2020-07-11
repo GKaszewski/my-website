@@ -1,17 +1,25 @@
-<div class="projects-page" fxLayout="column" fxLayoutAlign="space-evenly center" fxLayoutGap=40px>
-    <h1 display-1>My Projects</h1>
+<div class="projects-page" fxLayout="column" fxLayout.xs="column wrap" fxLayoutAlign="none center" fxLayoutGap=20px>
+    <div fxLayout="column" fxLayout.xs="column wrap" fxLayoutGap=1rem fxLayoutAlign="none center">
+        <h1 display-1>My Projects</h1>
+        <h2 display-1 *ngIf="currentCategory.length > 0">{{currentCategory}}</h2>
+    </div>
     <app-loader></app-loader>
-    <div>
-        <button mat-button (click)="accordion.openAll()">Expand All</button>
-        <button mat-button (click)="accordion.closeAll()">Collapse All</button>
+    <div fxLayout="row" fxLayout.xs="row wrap" fxLayoutGap=1rem>
+        <button mat-icon-button color="primary" (click)="changeDisplayedProjects('Games')"><mat-icon>sports_esports</mat-icon></button>
+        <button mat-icon-button color="primary" (click)="changeDisplayedProjects('Web')"><mat-icon>language</mat-icon></button>
+        <button mat-icon-button color="primary" (click)="changeDisplayedProjects('Mobile')"><mat-icon>smartphone</mat-icon></button>
+        <button mat-icon-button color="primary" (click)="changeDisplayedProjects('Desktop')"><mat-icon>computer</mat-icon></button>
+        <button mat-icon-button color="primary" (click)="changeDisplayedProjects('All')"><mat-icon>apps</mat-icon></button>
+       
+    </div>
+    <div fxLayout="row" fxLayout.xs="row wrap" fxLayoutGap=1rem>
+        <button mat-flat-button color="primary" (click)="accordion.openAll()">Expand <mat-icon>open_with</mat-icon></button>
+        <button mat-flat-button color="primary" (click)="accordion.closeAll()">Collapse <mat-icon>close_fullscreen</mat-icon></button>
     </div>
     <div class="projects-section" fxLayout="column" fxLayout.xs="column wrap" fxLayoutGap=1rem>
         <mat-accordion multi class="accordion">
-            <div *ngFor="let project of projects">
-                <app-project title="{{project.name}}" technology="{{project.technology}}"
-                    desc="{{project.shortDescription}}" longDescription="{{project.description}}"
-                    githubUrl="{{project.githubUrl}}" downloadUrl="{{project.downloadUrl}}"
-                    visitUrl="{{project.visitUrl}}" imgUrl="{{project.thumbnailUrl}}"></app-project>
+            <div *ngFor="let project of currentlyDisplayedProjects">
+                <app-project [data]="project"></app-project>
             </div>
         </mat-accordion>
     </div>
