@@ -46,6 +46,7 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { CreateTriviaComponent } from './create-trivia/create-trivia.component';
 import { TriviaEditorComponent } from './trivia-editor/trivia-editor.component';
+import { BlogEditorComponent } from './blog-editor/blog-editor.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +57,7 @@ import { TriviaEditorComponent } from './trivia-editor/trivia-editor.component';
     ProjectComponent,
     FooterComponent,
     BlogPageComponent,
+    BlogEditorComponent,
     GalleryPageComponent,
     PhotoDetailPageComponent,
     PostDetailPageComponent,
