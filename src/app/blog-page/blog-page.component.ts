@@ -28,8 +28,8 @@ export class BlogPageComponent implements OnInit, OnDestroy {
   constructor(private apiService : ApiService, private router : Router, private title : Title, private meta : Meta, public auth : AuthService) { }
 
   ngOnDestroy(): void {
-    this.fetchAllPostsSub.unsubscribe();
-    this.searchPostsSub.unsubscribe();
+    if(this.fetchAllPostsSub != null) this.fetchAllPostsSub.unsubscribe();
+    if(this.searchPostsSub != null) this.searchPostsSub.unsubscribe();
   }
 
   ngOnInit(): void {
