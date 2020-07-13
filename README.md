@@ -13,8 +13,8 @@ This project is written using Angular 9.
 * List of trivias with admin panel
 * User authentication
 * Blog editor
-## To do
 * Blog search tool and filter
+## To do
 * Statistics and analytics panel
 * Family tree
 ## Showcase
