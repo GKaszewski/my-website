@@ -26,12 +26,9 @@ export class TriviaEditorComponent implements OnDestroy {
   
 
   async addNewTrivia() {
-    const delay = ms => new Promise(res => setTimeout(res, ms));
     this.data.slug = this.createSlug(this.data.name);
     this.sub = this.apiService.postTrivia(this.data).subscribe(res => {
-      console.log(res);
     });
-    //await delay(500);
     this.addEvent.emit(null);
   }
 }
