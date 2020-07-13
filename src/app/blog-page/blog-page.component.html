@@ -5,5 +5,6 @@
         <p body-2>{{(post.content | slice:0:70)+'...' }}</p>
         <p body-2>{{post.created_on | date}}</p>
     </div>
+    <a *ngIf="auth.isAuth()" mat-fab color="primary" routerLink="/blog/editor"><mat-icon>add</mat-icon></a>
 </div>
 

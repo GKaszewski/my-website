@@ -4,6 +4,7 @@ import { ApiService } from '../services/ApiService.service';
 import { Router } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-blog-page',
@@ -14,7 +15,7 @@ export class BlogPageComponent implements OnInit, OnDestroy {
   posts : Post[] = [];
   sub : Subscription;
 
-  constructor(private apiService : ApiService, private router : Router, private title : Title, private meta : Meta) { }
+  constructor(private apiService : ApiService, private router : Router, private title : Title, private meta : Meta, public auth : AuthService) { }
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();
