@@ -43,6 +43,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { CreateTriviaComponent } from './create-trivia/create-trivia.component';
 import { TriviaEditorComponent } from './trivia-editor/trivia-editor.component';
@@ -90,6 +91,7 @@ import { BlogEditorComponent } from './blog-editor/blog-editor.component';
     MatFormFieldModule,
     FormsModule,
     MatInputModule,
+    MatSelectModule,
     MarkdownModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],

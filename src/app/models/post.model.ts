@@ -12,5 +12,5 @@ export class Post {
     author : string;
     content : string;
     created_on : Date;
-    category : PostCategory;
+    category : string;
 }

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Photo } from '../models/photo.model';
 import { Trivia } from '../models/trivia.model';
 import { Observable } from 'rxjs';
+import { Post } from '../models/post.model';
 
 @Injectable()
 export class ApiService {
@@ -24,6 +25,10 @@ export class ApiService {
 
     getPost(slug : string) {
         return this.http.get<any>(this.apiRoot.concat('blog/posts/').concat(slug).concat('/'));
+    }
+
+    postPost(data : any) :Observable<any> {
+        return this.http.post<Post>(this.apiRoot.concat('blog/posts/'),  JSON.parse(data));
     }
 
     getPhoto(slug : string) {

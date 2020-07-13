@@ -1,1 +1,36 @@
-<p>blog-editor works!</p>
+<div *ngIf="!auth.isAuth()" fxLayout="column" fxLayout.xs="column wrap" fxLayoutGap=1rem fxLayoutAlign="none center">
+    <p>You must be logged in to create new posts!</p>
+</div>
+<div *ngIf="auth.isAuth()" fxLayout="column" fxLayout.xs="column wrap" fxLayoutGap=1rem fxLayoutAlign="none center">
+    <div fxLayout="row" class="textfield">
+        <mat-form-field class="field">
+            <mat-label>Title</mat-label>
+            <input matInput type="text" required [(ngModel)]="data.title">
+        </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayout.xs="row wrap" fxLayoutGap=1rem class="textfield">
+        <div fxLayout="column" fxLayout.xs="column wrap" class="field">
+            <h3>Editor</h3>
+            <textarea class="text-component" matInput type="text" cdkTextareaAutosize cdkAutosizeMinRows="40"
+            cdkAutosizeMaxRows="40" [(ngModel)]="data.content" required></textarea>
+        </div>
+        <div fxLayout="column" fxLayout.xs="column wrap" class="field">
+            <h3>Preview</h3>
+            <markdown ngPreserveWhitespaces class="text-component preview" [data]="data.content"></markdown>
+        </div>
+    </div>
+    <mat-divider><span></span></mat-divider>
+    <div class="textfield" fxLayout="row" fxLayout.xs="row wrap" fxLayoutGap=1rem>
+        <mat-form-field class="field">
+            <mat-label>Category</mat-label>
+            <mat-select (selectionChange)="onSelection(category)" [(value)]="category">
+                <mat-option *ngFor="let cat of categories" [value]="cat">{{cat}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <mat-divider><span></span></mat-divider>
+    <div fxLayout="row" fxLayout.xs="row wrap" fxLayoutGap=1rem>
+        <button mat-flat-button color="primary" (click)="publishPost()">Publish</button>
+        <button mat-flat-button color="primary" (click)="saveDraft()">Save draft</button>
+    </div>
+</div>

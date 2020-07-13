@@ -12,11 +12,13 @@ import { ProjectsPageComponent } from './projects-page/projects-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { TriviasPageComponent } from './trivias-page/trivias-page.component';
 import { CreateTriviaComponent } from './create-trivia/create-trivia.component';
+import { BlogEditorComponent } from './blog-editor/blog-editor.component';
 
 const routes : Routes = [
   {path: "projects", component: ProjectsPageComponent},
   {path: "contact", component: ContactPageComponent},
   {path: "blog", component: BlogPageComponent},
+  {path: "blog/editor", component: BlogEditorComponent},
   {path: "blog/posts/:slug", component: PostDetailPageComponent},
   {path: "gallery", component: GalleryPageComponent},
   {path: 'login', component: LoginPageComponent},
