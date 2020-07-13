@@ -1,6 +1,6 @@
 # My website
 This project is written using Angular 9. 
-<img src="https://user-images.githubusercontent.com/42281413/86944131-98494980-c147-11ea-9681-6a1cf3f4db9e.png">
+![image](https://user-images.githubusercontent.com/42281413/86944131-98494980-c147-11ea-9681-6a1cf3f4db9e.png)
 ## Dependencies
 * [ngx-markdown](https://www.npmjs.com/package/ngx-markdown) 
 * [flex-layout](https://github.com/angular/flex-layout)
@@ -12,8 +12,8 @@ This project is written using Angular 9.
 * Blog
 * List of trivias with admin panel
 * User authentication
-## To do
 * Blog editor
+## To do
 * Blog search tool and filter
 * Statistics and analytics panel
 * Family tree
