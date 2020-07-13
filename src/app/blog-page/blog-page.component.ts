@@ -13,35 +13,78 @@ import { AuthService } from '../services/auth.service';
 })
 export class BlogPageComponent implements OnInit, OnDestroy {
   posts : Post[] = [];
-  sub : Subscription;
+  searchedPosts : Post[] = [];
+  lifePosts : Post[] = [];
+  technologyPosts : Post[] = [];
+  tutorialPosts : Post[] = [];
+
+  fetchAllPostsSub : Subscription;
+  searchPostsSub : Subscription;
+
+  query : string = "";
+
+  currentPosts : Post[] = [];
 
   constructor(private apiService : ApiService, private router : Router, private title : Title, private meta : Meta, public auth : AuthService) { }
 
   ngOnDestroy(): void {
-    this.sub.unsubscribe();
+    this.fetchAllPostsSub.unsubscribe();
+    this.searchPostsSub.unsubscribe();
   }
 
   ngOnInit(): void {
-    this.sub = this.apiService.getPosts().subscribe(res => {
-      res.forEach(data => {
-        let post = new Post;
-        post.author = data.author.username;
-        post.content = data.content;
-        post.created_on = data.created_on;
-        post.slug = data.slug;
-        post.title = data.title;
-        post.id = data.id;
-        post.status = data.status;
-        post.category = data.category;
-        this.posts.push(post);
-      });
+    this.fetchAllPostsSub = this.apiService.getPosts().subscribe(res => {
+      this.posts = res;
+      this.currentPosts = this.posts;
+      for(let i = 0; i < this.posts.length; i++) {
+        let post : Post = this.posts[i];
+        this.addToCollection(post.category, post);
+      }
     });
     this.title.setTitle('Gabriel Kaszewski - Blog');
     this.meta.updateTag({name: 'description', content: 'Blog about programming and my life style.'});
   }
 
+  private addToCollection(category : string, post: Post) {
+    switch (category) {
+      case "LIFE":
+        this.lifePosts.push(post);
+        break;
+      case "TECHNOLOGY":
+        this.technologyPosts.push(post);
+        break;
+      case "TUTORIAL":
+        this.tutorialPosts.push(post);
+        break;
+    }
+  }
+
+  changeDisplayedPosts(mode: string) {
+    switch (mode) {
+      case "All":
+        this.currentPosts = this.posts;
+        break;
+      case "Life":
+        this.currentPosts = this.lifePosts;
+        break;
+      case "Technology":
+        this.currentPosts = this.technologyPosts;
+        break;
+      case "Tutorial":
+        this.currentPosts = this.tutorialPosts;
+        break;
+    }
+  }
+
   goToPost(slug) {
     this.router.navigate(['/blog/posts', slug]);
+  }
+
+  search() {
+    this.searchPostsSub = this.apiService.getPostsByQuery(this.query).subscribe(res => {
+      this.searchedPosts = res;
+      this.currentPosts = this.searchedPosts;
+    });
   }
 
 }

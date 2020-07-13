@@ -89,6 +89,7 @@ import { BlogEditorComponent } from './blog-editor/blog-editor.component';
     MatProgressSpinnerModule,
     MatExpansionModule,
     MatFormFieldModule,
+    MatSidenavModule,
     FormsModule,
     MatInputModule,
     MatSelectModule,

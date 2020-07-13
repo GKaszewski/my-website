@@ -20,8 +20,12 @@ export class ApiService {
         return this.http.get<Photo[]>(this.apiRoot.concat('gallery/'));
     }
 
-    getPosts() {
-        return this.http.get<any[]>(this.apiRoot.concat('blog/posts/'));
+    getPosts() : Observable<Post[]> {
+        return this.http.get<Post[]>(this.apiRoot.concat('blog/posts/'));
+    }
+
+    getPostsByQuery(query : string) : Observable<Post[]> {
+        return this.http.get<Post[]>(this.apiRoot.concat(`blog/posts/?search=${query}`));
     }
 
     getPost(slug : string) {
