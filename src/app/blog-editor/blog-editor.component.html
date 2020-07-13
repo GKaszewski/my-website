@@ -1,36 +1,42 @@
-<div *ngIf="!auth.isAuth()" fxLayout="column" fxLayout.xs="column wrap" fxLayoutGap=1rem fxLayoutAlign="none center">
-    <p>You must be logged in to create new posts!</p>
-</div>
-<div *ngIf="auth.isAuth()" fxLayout="column" fxLayout.xs="column wrap" fxLayoutGap=1rem fxLayoutAlign="none center">
-    <div fxLayout="row" class="textfield">
-        <mat-form-field class="field">
-            <mat-label>Title</mat-label>
-            <input matInput type="text" required [(ngModel)]="data.title">
-        </mat-form-field>
-    </div>
-    <div fxLayout="row" fxLayout.xs="row wrap" fxLayoutGap=1rem class="textfield">
-        <div fxLayout="column" fxLayout.xs="column wrap" class="field">
-            <h3>Editor</h3>
-            <textarea class="text-component" matInput type="text" cdkTextareaAutosize cdkAutosizeMinRows="40"
-            cdkAutosizeMaxRows="40" [(ngModel)]="data.content" required></textarea>
+<mat-sidenav-container>
+    <mat-sidenav class="drafts" #draftsSide mode="side" [(opened)]="openedDraftTab">
+        <h3>Drafts</h3>
+        <a class="draft-element" *ngFor="let draft of drafts" (click)="selectDraft(draft); draftsSide.close()">{{draft.title}}</a>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div *ngIf="!auth.isAuth()" fxLayout="column" fxLayout.xs="column wrap" fxLayoutGap=1rem fxLayoutAlign="none center">
+            <p>You must be logged in to create new posts!</p>
         </div>
-        <div fxLayout="column" fxLayout.xs="column wrap" class="field">
-            <h3>Preview</h3>
-            <markdown ngPreserveWhitespaces class="text-component preview" [data]="data.content"></markdown>
+        <div *ngIf="auth.isAuth()" fxLayout="column" fxLayout.xs="column wrap" fxLayoutGap=1rem fxLayoutAlign="none center">
+            <div fxLayout="row" fxLayout.xs="row wrap" class="textfield">
+                <mat-form-field class="field">
+                    <mat-label>Title</mat-label>
+                    <input matInput type="text" required [(ngModel)]="data.title">
+                </mat-form-field>
+                <mat-form-field class="field">
+                    <mat-label>Category</mat-label>
+                    <mat-select (selectionChange)="onSelection(category)" [(value)]="category">
+                        <mat-option *ngFor="let cat of categories" [value]="cat">{{cat}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayout.xs="row wrap" fxLayoutGap=1rem class="textfield">
+                <div fxLayout="column" fxLayout.xs="column wrap" class="field">
+                    <h3 class="bold-text">Editor</h3>
+                    <textarea class="text-component" matInput type="text" cdkTextareaAutosize
+                     cdkAutosizeMinRows="20" cdkAutosizeMaxRows="20" [(ngModel)]="data.content" required></textarea>
+                </div>
+                <div fxLayout="column" fxLayout.xs="column wrap" class="field">
+                    <h3 class="bold-text">Preview</h3>
+                    <markdown ngPreserveWhitespaces class="text-component preview scrollable" [data]="data.content"></markdown>
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+            <div fxLayout="row" fxLayout.xs="row wrap" fxLayoutGap=1rem>
+                <button mat-flat-button color="primary" (click)="draftsSide.toggle()">Open drafts <mat-icon>folder_open</mat-icon></button>
+                <button mat-flat-button color="primary" (click)="publishPost()">Publish <mat-icon>publish</mat-icon></button>
+                <button mat-flat-button color="primary" (click)="saveDraft()">Save draft <mat-icon>save</mat-icon></button>
+            </div>
         </div>
-    </div>
-    <mat-divider><span></span></mat-divider>
-    <div class="textfield" fxLayout="row" fxLayout.xs="row wrap" fxLayoutGap=1rem>
-        <mat-form-field class="field">
-            <mat-label>Category</mat-label>
-            <mat-select (selectionChange)="onSelection(category)" [(value)]="category">
-                <mat-option *ngFor="let cat of categories" [value]="cat">{{cat}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-    </div>
-    <mat-divider><span></span></mat-divider>
-    <div fxLayout="row" fxLayout.xs="row wrap" fxLayoutGap=1rem>
-        <button mat-flat-button color="primary" (click)="publishPost()">Publish</button>
-        <button mat-flat-button color="primary" (click)="saveDraft()">Save draft</button>
-    </div>
-</div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

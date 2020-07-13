@@ -4,6 +4,7 @@ import { Photo } from '../models/photo.model';
 import { Trivia } from '../models/trivia.model';
 import { Observable } from 'rxjs';
 import { Post } from '../models/post.model';
+import { Project } from '../models/project.model';
 
 @Injectable()
 export class ApiService {
@@ -12,7 +13,7 @@ export class ApiService {
     constructor(private http : HttpClient){}
 
     getProjects() {
-        return this.http.get<any[]>(this.apiRoot.concat('projects/project-item/'));
+        return this.http.get<Project[]>(this.apiRoot.concat('projects/project-item/'));
     }
 
     getPhotos() {
@@ -25,6 +26,10 @@ export class ApiService {
 
     getPost(slug : string) {
         return this.http.get<any>(this.apiRoot.concat('blog/posts/').concat(slug).concat('/'));
+    }
+
+    getDrafts() : Observable<Post[]> {
+        return this.http.get<Post[]>(this.apiRoot.concat('blog/drafts/'));
     }
 
     postPost(data : any) :Observable<any> {

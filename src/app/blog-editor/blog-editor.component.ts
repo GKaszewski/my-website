@@ -14,18 +14,22 @@ export class BlogEditorComponent implements OnInit, OnDestroy {
   data : Post = new Post();
   category : string = "LIFE";
   categories : string[] = ["LIFE", "TECHNOLOGY", "TUTORIAL"];
-  sub : Subscription;
+  publishSub : Subscription;
+  draftsSub : Subscription;
+  openedDraftTab : boolean = false;
+
+  drafts : Post[] = [];
   
   constructor(private apiService : ApiService, private title : Title, public auth : AuthService) { }
 
   ngOnDestroy(): void {
-    if(this.sub != null) {
-      this.sub.unsubscribe();
-    }
+    if(this.publishSub != null) this.publishSub.unsubscribe();
+    if(this.draftsSub != null) this.draftsSub.unsubscribe();
   }
 
   ngOnInit(): void {
     this.title.setTitle('Blog Editor');
+    this.getDrafts();
   }
 
   createSlug(name) : string {
@@ -39,13 +43,23 @@ export class BlogEditorComponent implements OnInit, OnDestroy {
   publishPost() {
     this.data.slug = this.createSlug(this.data.title);
     this.data.status = 1;
-    this.sub = this.apiService.postPost(JSON.stringify(this.data)).subscribe();
+    this.publishSub = this.apiService.postPost(JSON.stringify(this.data)).subscribe();
   }
 
   saveDraft() {
     this.data.slug = this.createSlug(this.data.title);
     this.data.status = 0;
-    this.sub = this.apiService.postPost(JSON.stringify(this.data)).subscribe();
+    this.publishSub = this.apiService.postPost(JSON.stringify(this.data)).subscribe();
+  }
+
+  getDrafts() {
+    this.draftsSub = this.apiService.getDrafts().subscribe(data => {
+      this.drafts = data;
+    });
+  }
+
+  selectDraft(selected : Post) {
+    this.data = selected;
   }
 
 }

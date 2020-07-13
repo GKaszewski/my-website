@@ -14,3 +14,21 @@
 .text-component {
     width: 100%;
 }
+
+.drafts {
+    width: 30%;
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+.draft-element:hover{
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.scrollable {
+    height: 400px;
+    overflow-y: scroll;
+}
