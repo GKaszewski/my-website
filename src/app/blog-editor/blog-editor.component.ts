@@ -5,11 +5,17 @@ import { Post } from '../models/post.model';
 import { Title } from '@angular/platform-browser';
 import { AuthService } from '../services/auth.service';
 
+enum EditorMode {
+  CREATE_NEW,
+  MODIFY_EXISTING
+}
+
 @Component({
   selector: 'app-blog-editor',
   templateUrl: './blog-editor.component.html',
   styleUrls: ['./blog-editor.component.scss']
 })
+
 export class BlogEditorComponent implements OnInit, OnDestroy {
   data : Post = new Post();
   category : string = "LIFE";
@@ -17,6 +23,7 @@ export class BlogEditorComponent implements OnInit, OnDestroy {
   publishSub : Subscription;
   draftsSub : Subscription;
   openedDraftTab : boolean = false;
+  mode : EditorMode;
 
   drafts : Post[] = [];
   
@@ -28,6 +35,7 @@ export class BlogEditorComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.mode = EditorMode.CREATE_NEW;
     this.title.setTitle('Blog Editor');
     this.getDrafts();
   }
@@ -41,15 +49,45 @@ export class BlogEditorComponent implements OnInit, OnDestroy {
   }
 
   publishPost() {
-    this.data.slug = this.createSlug(this.data.title);
-    this.data.status = 1;
-    this.publishSub = this.apiService.postPost(JSON.stringify(this.data)).subscribe();
+    switch(this.mode) {
+      case EditorMode.CREATE_NEW:
+        this.createPost(1);
+        break;
+      case EditorMode.MODIFY_EXISTING:
+        this.modifyPost(1);
+        break;
+    }
   }
 
   saveDraft() {
+    switch(this.mode) {
+      case EditorMode.CREATE_NEW:
+        this.createPost(0);
+        break;
+      case EditorMode.MODIFY_EXISTING:
+        this.modifyPost(0);
+        break;
+    }
+  }
+
+  private createPost(status : number) {
     this.data.slug = this.createSlug(this.data.title);
-    this.data.status = 0;
-    this.publishSub = this.apiService.postPost(JSON.stringify(this.data)).subscribe();
+    this.data.status = status;
+    this.publishSub = this.apiService.postPost(JSON.stringify(this.data)).subscribe(res => {
+      this.displayResponseStatus('Success!');
+    });
+  }
+
+  private modifyPost(status : number) {
+    this.data.slug = this.createSlug(this.data.title);
+    this.data.status = status;
+    this.publishSub = this.apiService.updatePost(this.data.slug, JSON.stringify(this.data)).subscribe(res => {
+      this.displayResponseStatus('Success!');
+    });
+  }
+
+  displayResponseStatus(message : string) {
+    alert(message);
   }
 
   getDrafts() {
@@ -60,6 +98,12 @@ export class BlogEditorComponent implements OnInit, OnDestroy {
 
   selectDraft(selected : Post) {
     this.data = selected;
+    this.mode = EditorMode.MODIFY_EXISTING;
+  }
+
+  createNew() {
+    this.data = new Post();
+    this.mode = EditorMode.CREATE_NEW;
   }
 
 }

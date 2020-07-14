@@ -40,6 +40,10 @@ export class ApiService {
         return this.http.post<Post>(this.apiRoot.concat('blog/posts/'),  JSON.parse(data));
     }
 
+    updatePost(slug : string, data : any) : Observable<any> {
+        return this.http.put<Post>(this.apiRoot.concat(`blog/drafts/${slug}/`), JSON.parse(data));
+    }
+
     getPhoto(slug : string) {
         return this.http.get<Photo>(this.apiRoot.concat('gallery/').concat(slug));
     }
