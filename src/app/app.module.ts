@@ -33,7 +33,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoaderService } from './services/loader.service'
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { TokenInterceptor } from './interceptors/token.interceptor';
-import { MarkdownModule } from 'ngx-markdown';
+import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
 import { AuthService } from './services/auth.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
@@ -48,6 +48,7 @@ import { FormsModule } from '@angular/forms';
 import { CreateTriviaComponent } from './create-trivia/create-trivia.component';
 import { TriviaEditorComponent } from './trivia-editor/trivia-editor.component';
 import { BlogEditorComponent } from './blog-editor/blog-editor.component';
+import { TimeoutError } from 'rxjs';
 @NgModule({
   declarations: [
     AppComponent,
@@ -93,7 +94,18 @@ import { BlogEditorComponent } from './blog-editor/blog-editor.component';
     FormsModule,
     MatInputModule,
     MatSelectModule,
-    MarkdownModule.forRoot(),
+    MarkdownModule.forRoot({
+      markedOptions: {
+        provide: MarkedOptions,
+        useValue: {
+          gfm: true,
+          breaks: true,
+          pedantic: false,
+          smartLists: true,
+          smartypants: false,
+        }
+      }
+    }),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [
