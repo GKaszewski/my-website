@@ -6,7 +6,7 @@
     <p>{{data.shortDescription}}</p>
     <p>{{data.description}}</p>
     <img class="thumbnail" *ngIf="data.thumbnailUrl" mat-card-image src="{{data.thumbnailUrl}}">
-    <div fxLayout="row" fxLayout.xs="row wrap" fxLayoutGap=1rem>
+    <div fxLayout="row" fxLayout.xs="column wrap" fxLayoutGap=1rem>
     <button *ngIf="data.githubUrl" mat-raised-button color="primary" (click)="goToPage(data.githubUrl)">Github</button>
     <button *ngIf="data.downloadUrl" mat-raised-button color="primary" (click)="goToPage(data.downloadUrl)">Download<mat-icon>get_app</mat-icon></button>
     <button *ngIf="data.visitUrl" mat-raised-button color="primary" (click)="goToPage(data.visitUrl)">Visit</button>

@@ -3,24 +3,22 @@
         <h1 display-1>My Projects</h1>
         <h2 display-1 *ngIf="currentCategory.length > 0">{{currentCategory}}</h2>
     </div>
-    <app-loader></app-loader>
     <div fxLayout="row" fxLayout.xs="row wrap" fxLayoutGap=1rem>
         <button mat-icon-button color="primary" (click)="changeDisplayedProjects('Games')"><mat-icon>sports_esports</mat-icon></button>
         <button mat-icon-button color="primary" (click)="changeDisplayedProjects('Web')"><mat-icon>language</mat-icon></button>
         <button mat-icon-button color="primary" (click)="changeDisplayedProjects('Mobile')"><mat-icon>smartphone</mat-icon></button>
         <button mat-icon-button color="primary" (click)="changeDisplayedProjects('Desktop')"><mat-icon>computer</mat-icon></button>
         <button mat-icon-button color="primary" (click)="changeDisplayedProjects('All')"><mat-icon>apps</mat-icon></button>
-       
+        
     </div>
     <div fxLayout="row" fxLayout.xs="row wrap" fxLayoutGap=1rem>
         <button mat-flat-button color="primary" (click)="accordion.openAll()">Expand <mat-icon>open_with</mat-icon></button>
         <button mat-flat-button color="primary" (click)="accordion.closeAll()">Collapse <mat-icon>close_fullscreen</mat-icon></button>
     </div>
-    <div class="projects-section" fxLayout="column" fxLayout.xs="column wrap" fxLayoutGap=1rem>
-        <mat-accordion multi class="accordion">
-            <div *ngFor="let project of currentlyDisplayedProjects">
-                <app-project [data]="project"></app-project>
-            </div>
+    <app-loader></app-loader>
+    <div fxLayout="column" fxLayout.xs="column wrap" fxLayoutAlign="space-evenly center">
+        <mat-accordion multi class="projects-section">
+            <app-project *ngFor="let project of currentlyDisplayedProjects" [data]="project"></app-project>
         </mat-accordion>
     </div>
 </div>
